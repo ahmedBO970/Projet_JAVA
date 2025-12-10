@@ -2,7 +2,7 @@ body{
   font-family: "Fjalla One", sans-serif;
   font-weight: 400;
   font-style: normal;
-  color: #040F0F;
+  color: #101011;
   background-color: #FEFEFF;
 }
 
@@ -55,4 +55,71 @@ nav img {
 
 nav img:hover {
   transform: scale(1.15);
+}
+
+.best-du-moment {
+  width: 100%;
+  margin-top: 5vw;
+  text-align: center;
+  color: #1D2633;
+}
+
+.titre-section {
+  font-size: 3vw;
+  margin-bottom: 4vw;
+}
+
+.podium {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 4vw;
+  width: 100%;
+}
+
+.film {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.affiche {
+  background-color: #CFD1DA;
+  border-radius: 1vw;
+  box-shadow: 0 0.4vw 1vw rgba(0, 0, 0, 0.15);
+}
+
+.titre-film {
+  margin-top: 1.2vw;
+  font-size: 1.5vw;
+  color: #101011;
+}
+
+.rang {
+  position: absolute;
+  top: -1vw;
+  right: -1vw;
+  background-color: #FFD747;
+  font-size: 1.2vw;
+  padding: 0.5vw 1vw;
+  border-radius: 1vw;
+  font-weight: bold;
+}
+
+.podium-1 .affiche {
+  height: 28vw;
+  width: 18vw;
+}
+
+.podium-2 .affiche {
+  height: 22vw;
+  width: 15vw;
+  margin-bottom: 2vw;
+}
+
+.podium-3 .affiche {
+  height: 20vw;
+  width: 14vw;
+  margin-bottom: 3vw;
 }
