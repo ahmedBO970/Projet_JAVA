@@ -92,7 +92,7 @@ nav img:hover {
 
 .titre-film {
   margin-top: 1.2vw;
-  font-size: 1.5vw;
+  font-size: 1.7vw;
   color: #101011;
 }
 
@@ -107,19 +107,65 @@ nav img:hover {
   font-weight: bold;
 }
 
-.podium-1 .affiche {
+#podium-1 .affiche {
   height: 28vw;
   width: 18vw;
 }
 
-.podium-2 .affiche {
+#podium-2 .affiche {
   height: 22vw;
   width: 15vw;
   margin-bottom: 2vw;
 }
 
-.podium-3 .affiche {
+#podium-3 .affiche {
   height: 20vw;
   width: 14vw;
   margin-bottom: 3vw;
+}
+
+.bouton-plus {
+  font-size: 1.2vw;
+  padding: 0.6vw 1.4vw;
+  background-color: #FFD747;
+  color: #101011;
+  border: none;
+  border-radius: 0.8vw;
+  font-family: inherit;
+  font-weight: bold;
+  transform: translateY(1vw);
+  transition: 0.4s;
+}
+
+#podium-1 .bouton-plus {
+  margin-top: 110%;
+}
+
+#podium-2 .bouton-plus {
+  margin-top: 100%;
+}
+
+#podium-3 .bouton-plus {
+  margin-top: 90%;
+}
+
+.bouton-plus:hover {
+  transform: translateY(1vw) scale(1.1);
+}
+
+.resume-cache {
+  width: 90%;
+  background-color: #CFD1DA;
+  color: #101011;
+  border-radius: 1vw;
+  margin-top: 1vw;
+  overflow: hidden;
+  height: 0vw;
+  transition: height 0.4s ease;
+}
+
+.texte-resume {
+  font-size: 1.1vw;
+  padding: 1.5vw;
+  line-height: 1.5;
 }
