@@ -84,7 +84,7 @@ nav img:hover {
 }
 
 .affiche {
-  background-color: #CFD1DA;
+  border-radius: 1vw solid #CFD1DA;
   border-radius: 1vw;
   box-shadow: 0 0.4vw 1vw rgba(0, 0, 0, 0.15);
 }
@@ -107,17 +107,23 @@ nav img:hover {
 }
 
 #podium-1 .affiche {
+  background: url("") center;
+  background-size: cover;
   height: 28vw;
   width: 18vw;
 }
 
 #podium-2 .affiche {
+  background: url("") center;
+  background-size: cover;
   height: 22vw;
   width: 15vw;
   margin-bottom: 2vw;
 }
 
 #podium-3 .affiche {
+  background: url("") center;
+  background-size: cover;
   height: 20vw;
   width: 14vw;
   margin-bottom: 3vw;
@@ -134,6 +140,7 @@ nav img:hover {
   font-weight: bold;
   transform: translateY(1vw);
   transition: 0.4s;
+  box-shadow: 0 0.4vw 1vw rgba(0, 0, 0, 0.15);
 }
 
 #podium-1 .bouton-plus {
@@ -160,10 +167,11 @@ nav img:hover {
   margin-top: 1vw;
   overflow: hidden;
   height: 0vw;
+  box-shadow: 0 0.4vw 1vw rgba(0, 0, 0, 0.15);
   transition: height 0.4s ease;
 }
 
-.texte-resume {
+p {
   font-size: 1.1vw;
   padding: 1.5vw;
   line-height: 1.5;
