@@ -8,6 +8,7 @@ body{
 
 a {
   text-decoration: none;
+  text-transform: uppercase;
   color: inherit;
   font-weight: 500;
 }
@@ -40,6 +41,7 @@ nav {
 nav a {
   font-size: 2vw;
   transition: 0.2s;
+  cursor: pointer;
 }
 
 nav a:hover {
@@ -50,6 +52,7 @@ nav img {
   height: 5vw;
   object-fit: contain;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 nav img:hover {
@@ -58,14 +61,15 @@ nav img:hover {
 
 .best-du-moment {
   width: 100%;
-  margin-top: 5vw;
-  text-align: center;
   color: #1D2633;
 }
 
 .titre-section {
+  margin-top: 5vw;
   font-size: 3vw;
   margin-bottom: 4vw;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .podium {
@@ -90,10 +94,13 @@ nav img:hover {
   object-fit: cover;
 }
 
-.titre-film {
+h3{
+  color: #101011;
+}
+
+.titre-podium {
   margin-top: 1.2vw;
   font-size: 1.7vw;
-  color: #101011;
 }
 
 .rang {
@@ -144,6 +151,7 @@ nav img:hover {
   border-radius: 0.8vw;
   font-family: inherit;
   font-weight: bold;
+  cursor: pointer;
   transition: 0.4s;
   transform: translateY(1vw);
   box-shadow: 0 0.6vw 1vw rgba(0, 0, 0, 0.15);
@@ -165,8 +173,57 @@ nav img:hover {
   transition: height 0.4s ease;
 }
 
-p {
+.resume-cache p {
   font-size: 1.1vw;
   padding: 1.5vw;
   line-height: 1.5;
+}
+
+.carrousel {
+  width: 100%;
+  margin-top: 4vw;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+
+.carrousel-container {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 2vw;
+}
+
+.carrousel-track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.slide {
+  min-width: 100%;
+  height: 30vw;
+  background: #CFD1DA;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titre-carrousel {
+  font-size: 7vw;
+}
+
+.slide-btn {
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: #FEFEFF;
+  font-size: 3vw;
+  padding: 1vw;
+  cursor: pointer;
+  height: fit-content;
+  border-radius: 0.5vw;
+  transition: 0.3s;
+}
+
+.slide-btn:hover {
+  background: #1D2633;
+  color: #CFD1DA;
 }

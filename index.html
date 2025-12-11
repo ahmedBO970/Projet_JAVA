@@ -14,7 +14,7 @@
     <header>
       <nav>
         <div class="nav-gauche">
-          <a href="catalogue.html">Catalogue</a>
+          <a href="#Toujours-plus">Toujours plus</a>
         </div>
 
         <a href="index.html">
@@ -29,34 +29,50 @@
         </div>
       </nav>
     </header>
-    <section class="best-du-moment">
+
+    <main>
       <h2 class="titre-section">Best du moment</h2>
+      <section class="best-du-moment">
+        <div class="podium">
+          <div class="film" id="podium-2">
+            <span class="rang">2</span>
+            <img class="affiche" src="" alt="affiche film" />
+            <h3 class="titre-podium"></h3>
 
-      <div class="podium">
-        <div class="film" id="podium-2">
-          <span class="rang">2</span>
-          <img class="affiche" src="" alt="affiche film" />
-          <h3 class="titre-film"></h3>
-          <button class="bouton-plus">En savoir plus</button>
-          <div class="resume-cache"><p></p></div>
+            <button class="bouton-plus">En savoir plus</button>
+            <div class="resume-cache"><p></p></div>
+          </div>
+
+          <div class="film" id="podium-1">
+            <span class="rang">1</span>
+            <img class="affiche" src="" alt="affiche film" />
+            <h3 class="titre-podium"></h3>
+
+            <button class="bouton-plus">En savoir plus</button>
+            <div class="resume-cache"><p></p></div>
+          </div>
+
+          <div class="film" id="podium-3">
+            <span class="rang">3</span>
+            <img class="affiche" src="" alt="affiche film" />
+            <h3 class="titre-podium"></h3>
+
+            <button class="bouton-plus">En savoir plus</button>
+            <div class="resume-cache"><p></p></div>
+          </div>
+        </div>
+      </section>
+
+      <h2 class="titre-section">Toujours plus</h2>
+      <section class="carrousel" id="Toujours-plus">
+        <button id="prec" class="slide-btn">◀</button>
+
+        <div class="carrousel-container">
+          <div class="carrousel-track"></div>
         </div>
 
-        <div class="film" id="podium-1">
-          <span class="rang">1</span>
-          <img class="affiche" src="" alt="affiche film" />
-          <h3 class="titre-film"></h3>
-          <button class="bouton-plus">En savoir plus</button>
-          <div class="resume-cache"><p></p></div>
-        </div>
-
-        <div class="film" id="podium-3">
-          <span class="rang">3</span>
-          <img class="affiche" src="" alt="affiche film" />
-          <h3 class="titre-film"></h3>
-          <button class="bouton-plus">En savoir plus</button>
-          <div class="resume-cache"><p></p></div>
-        </div>
-      </div>
-    </section>
+        <button id="suiv" class="slide-btn">▶</button>
+      </section>
+    </main>
   </body>
 </html>

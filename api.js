@@ -1,7 +1,7 @@
 const KEY_API = "15bde907";
 const URL_API = "https://www.omdbapi.com/";
 
-export async function get_filme(requete) {
+export async function get_film(requete) {
   try {
     const url = `${URL_API}?apikey=${KEY_API}&${requete}`;
 
