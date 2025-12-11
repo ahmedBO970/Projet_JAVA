@@ -84,9 +84,10 @@ nav img:hover {
 }
 
 .affiche {
-  border-radius: 1vw solid #CFD1DA;
+  width: 100%;
   border-radius: 1vw;
-  box-shadow: 0 0.4vw 1vw rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.6vw 1vw rgba(0, 0, 0, 0.15);
+  object-fit: cover;
 }
 
 .titre-film {
@@ -98,7 +99,6 @@ nav img:hover {
 .rang {
   position: absolute;
   top: -1vw;
-  right: -1vw;
   background-color: #FFD747;
   font-size: 1.2vw;
   padding: 0.5vw 1vw;
@@ -106,53 +106,47 @@ nav img:hover {
   font-weight: bold;
 }
 
+#podium-1 .rang {
+  right: 3vw;
+}
+
+#podium-2 .rang {
+  right: 4vw;
+}
+
+#podium-3 .rang {
+  right: 5vw;
+}
+
 #podium-1 .affiche {
-  background: url("") center;
-  background-size: cover;
   height: 28vw;
   width: 18vw;
 }
 
 #podium-2 .affiche {
-  background: url("") center;
-  background-size: cover;
-  height: 22vw;
-  width: 15vw;
-  margin-bottom: 2vw;
+  height: 24.3vw;
+  width: 15.6vw;
+  margin-bottom: 1.5vw;
 }
 
 #podium-3 .affiche {
-  background: url("") center;
-  background-size: cover;
-  height: 20vw;
-  width: 14vw;
-  margin-bottom: 3vw;
+  height: 21.5vw;
+  width: 13.8vw;
+  margin-bottom: 2vw;
 }
 
 .bouton-plus {
   font-size: 1.2vw;
-  padding: 0.6vw 1.4vw;
+  padding: 0.8vw 10vw;
   background-color: #FFD747;
   color: #101011;
   border: none;
   border-radius: 0.8vw;
   font-family: inherit;
   font-weight: bold;
-  transform: translateY(1vw);
   transition: 0.4s;
-  box-shadow: 0 0.4vw 1vw rgba(0, 0, 0, 0.15);
-}
-
-#podium-1 .bouton-plus {
-  margin-top: 110%;
-}
-
-#podium-2 .bouton-plus {
-  margin-top: 100%;
-}
-
-#podium-3 .bouton-plus {
-  margin-top: 90%;
+  transform: translateY(1vw);
+  box-shadow: 0 0.6vw 1vw rgba(0, 0, 0, 0.15);
 }
 
 .bouton-plus:hover {
@@ -160,14 +154,14 @@ nav img:hover {
 }
 
 .resume-cache {
-  width: 90%;
-  background-color: #CFD1DA;
+  width: 26vw;
+  background-color: #FFD747;
   color: #101011;
   border-radius: 1vw;
   margin-top: 1vw;
   overflow: hidden;
-  height: 0vw;
-  box-shadow: 0 0.4vw 1vw rgba(0, 0, 0, 0.15);
+  height: 0px;
+  box-shadow: 0 0.6vw 1vw rgba(0, 0, 0, 0.15);
   transition: height 0.4s ease;
 }
 

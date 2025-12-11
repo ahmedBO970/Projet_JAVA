@@ -8,22 +8,31 @@ const filmesPodium = {
 
 async function remplirPodium() {
   for (const id in filmesPodium) {
-    const requete = filmesPodium[id];
-    const data = await get_filme(requete);
-
+    const data = await get_filme(filmesPodium[id]);
     if (!data) continue;
 
-    const bloc_filme = document.getElementById(id);
+    const bloc = document.getElementById(id);
 
-    // Correction du mauvais nom de variable
-    const blocAffiche = bloc_filme.querySelector(".affiche");
-    blocAffiche.style.backgroundImage = `url('${data.Poster}')`;
+    const img = bloc.querySelector(".affiche");
+    img.src = data.Poster !== "N/A" ? data.Poster : "./img/no-poster.png";
 
-    const titre = bloc_filme.querySelector(".titre-film");
-    titre.textContent = data.Title;
+    bloc.querySelector(".titre-film").textContent = data.Title;
 
-    const resume = bloc_filme.querySelector("p");
-    resume.textContent = data.Plot;
+    bloc.querySelector(".resume-cache p").textContent = data.Plot;
+
+    const bouton = bloc.querySelector(".bouton-plus");
+    const resume = bloc.querySelector(".resume-cache");
+
+    bouton.onclick = () => {
+  if (resume.classList.contains("open")) {
+    resume.style.height = "0px";
+    resume.classList.remove("open");
+  } else {
+    resume.style.height = resume.scrollHeight + "px";
+    resume.classList.add("open");
+  }
+};
+
   }
 }
 
