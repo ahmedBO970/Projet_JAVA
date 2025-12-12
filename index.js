@@ -53,8 +53,16 @@ async function chargerCarrousel() {
     slide.classList.add("slide");
 
     slide.innerHTML = `
-      <h3 class="titre-carrousel">${data?.Title || "Film inconnu"}</h3>
-      <img src="${data?.Poster && data.Poster !== "N/A" ? data.Poster : "./img/no-poster.png"}" alt="">
+      <div class="slide-bg" style="background-image: url('${data.Poster}')"></div>
+
+      <div class="slide-left">
+        <h2 class="slide-title">${data.Title}</h2>
+        <button class="bouton-plus" id="btn-slide">En savoir plus</button>
+      </div>
+
+      <div class="slide-right">
+        <img class="slide-poster" src="${data.Poster}" alt="">
+      </div>
     `;
 
     track.appendChild(slide);
