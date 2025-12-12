@@ -24,15 +24,14 @@ async function remplirPodium() {
     const resume = bloc.querySelector(".resume-cache");
 
     bouton.onclick = () => {
-  if (resume.classList.contains("open")) {
-    resume.style.height = "0px";
-    resume.classList.remove("open");
-  } else {
-    resume.style.height = resume.scrollHeight + "px";
-    resume.classList.add("open");
-  }
-};
-
+      if (resume.classList.contains("open")) {
+        resume.style.height = "0px";
+        resume.classList.remove("open");
+      } else {
+        resume.style.height = resume.scrollHeight + "px";
+        resume.classList.add("open");
+      }
+    };
   }
 }
 
@@ -48,25 +47,52 @@ const track = document.querySelector(".carrousel-track");
 async function chargerCarrousel() {
   for (const requete of filmsCarousel) {
     const data = await get_film(requete);
+    if (!data) continue;
+
+    const poster = data.Poster !== "N/A" ? data.Poster : "./img/no-poster.png";
 
     const slide = document.createElement("div");
     slide.classList.add("slide");
 
     slide.innerHTML = `
-      <div class="slide-bg" style="background-image: url('${data.Poster}')"></div>
+      <div class="slide-bg" style="background-image: url('${poster}')"></div>
 
       <div class="slide-left">
         <h2 class="slide-title">${data.Title}</h2>
         <button class="bouton-plus" id="btn-slide">En savoir plus</button>
+        <div class="resume-cache" id="resume-slide"><p>${data.Plot || "Résumé non disponible."}</p></div>
       </div>
 
       <div class="slide-right">
-        <img class="slide-poster" src="${data.Poster}" alt="">
+        <img class="slide-poster" src="${poster}" alt="">
       </div>
     `;
 
     track.appendChild(slide);
   }
+
+  activerBoutonsCarrousel();
+}
+
+function activerBoutonsCarrousel() {
+  const slides = document.querySelectorAll(".slide");
+
+  slides.forEach((slide) => {
+    const bouton = slide.querySelector("#btn-slide");
+    const resume = slide.querySelector("#resume-slide");
+
+    resume.style.height = "0px";
+
+    bouton.onclick = () => {
+      if (resume.classList.contains("open")) {
+        resume.style.height = "0px";
+        resume.classList.remove("open");
+      } else {
+        resume.style.height = resume.scrollHeight + "px";
+        resume.classList.add("open");
+      }
+    };
+  });
 }
 
 await chargerCarrousel();
