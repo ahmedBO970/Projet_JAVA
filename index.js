@@ -1,4 +1,4 @@
-import { get_film } from "./api.js";
+import { get_film, get_films_random } from "./api.js";
 
 const filmsPodium = {
   "podium-1": "t=Deadpool",
@@ -38,27 +38,30 @@ async function remplirPodium() {
 
 window.onload = remplirPodium;
 
-const filmsTest = [
-  { title: "Film 1", img: "./img/1.jpg" },
-  { title: "Film 2", img: "./img/2.jpg" },
-  { title: "Film 3", img: "./img/3.jpg" },
-  { title: "Film 4", img: "./img/4.jpg" },
-  { title: "Film 5", img: "./img/5.jpg" },
-];
+
+const filmsCarousel = get_films_random(5);
 
 let index = 0;
 
 const track = document.querySelector(".carrousel-track");
 
-filmsTest.forEach(film => {
-  const slide = document.createElement("div");
-  slide.classList.add("slide");
-  slide.innerHTML = `
-    <h3 class="titre-carrousel">${film.title}</h3>
-    <img src="${film.img}" alt="">
-  `;
-  track.appendChild(slide);
-});
+async function chargerCarrousel() {
+  for (const requete of filmsCarousel) {
+    const data = await get_film(requete);
+
+    const slide = document.createElement("div");
+    slide.classList.add("slide");
+
+    slide.innerHTML = `
+      <h3 class="titre-carrousel">${data?.Title || "Film inconnu"}</h3>
+      <img src="${data?.Poster && data.Poster !== "N/A" ? data.Poster : "./img/no-poster.png"}" alt="">
+    `;
+
+    track.appendChild(slide);
+  }
+}
+
+await chargerCarrousel();
 
 const btnPrec = document.getElementById("prec");
 const btnSuiv = document.getElementById("suiv");
@@ -66,7 +69,6 @@ const btnSuiv = document.getElementById("suiv");
 function updateCarrousel() {
   const width = document.querySelector(".carrousel-container").offsetWidth;
   track.style.transform = `translateX(-${index * width}px)`;
-
   btnPrec.style.visibility = index === 0 ? "hidden" : "visible";
 }
 
@@ -78,12 +80,10 @@ btnPrec.onclick = () => {
 };
 
 btnSuiv.onclick = () => {
-  if (index < filmsTest.length - 1) {
+  if (index < filmsCarousel.length - 1) {
     index++;
     updateCarrousel();
   }
 };
 
-// init
 updateCarrousel();
-
