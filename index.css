@@ -299,3 +299,38 @@ h3{
   font-size: 1.2vw;
   display: none;
 }
+
+.footer {
+  margin-top: 6vw;
+  background-color: #1D2633;
+  color: #FEFEFF;
+  padding: 2.5vw 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70vw;
+  margin: auto;
+}
+
+.footer-content p {
+  font-size: 1.2vw;
+  opacity: 0.8;
+  width: 15vw;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 2.5vw;
+}
+
+.footer-nav a {
+  font-size: 1.4vw;
+  transition: 0.2s;
+}
+
+.footer-nav a:hover {
+  color: #FFD747;
+}
