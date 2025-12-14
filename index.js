@@ -38,14 +38,16 @@ async function remplirPodium() {
 window.onload = remplirPodium;
 
 
-const filmsCarousel = get_films_random(5);
 
+let filmsCarousel = get_films_random(5);
 let index = 0;
+let loading = false;
 
 const track = document.querySelector(".carrousel-track");
+const loader = document.getElementById("loader");
 
-async function chargerCarrousel() {
-  for (const requete of filmsCarousel) {
+async function chargerCarrousel(liste) {
+  for (const requete of liste) {
     const data = await get_film(requete);
     if (!data) continue;
 
@@ -55,16 +57,16 @@ async function chargerCarrousel() {
     slide.classList.add("slide");
 
     slide.innerHTML = `
-      <div class="slide-bg" style="background-image: url('${poster}')"></div>
+      <div class="slide-bg" style="background-image:url('${poster}')"></div>
 
       <div class="slide-left">
         <h2 class="slide-title">${data.Title}</h2>
-        <button class="bouton-plus" id="btn-slide">En savoir plus</button>
-        <div class="resume-cache" id="resume-slide"><p>${data.Plot || "Résumé non disponible."}</p></div>
+        <button class="bouton-plus btn-slide">En savoir plus</button>
+        <div class="resume-cache"><p>${data.Plot}</p></div>
       </div>
 
       <div class="slide-right">
-        <img class="slide-poster" src="${poster}" alt="">
+        <img class="slide-poster" src="${poster}">
       </div>
     `;
 
@@ -75,27 +77,35 @@ async function chargerCarrousel() {
 }
 
 function activerBoutonsCarrousel() {
-  const slides = document.querySelectorAll(".slide");
-
-  slides.forEach((slide) => {
-    const bouton = slide.querySelector("#btn-slide");
-    const resume = slide.querySelector("#resume-slide");
-
-    resume.style.height = "0px";
-
-    bouton.onclick = () => {
-      if (resume.classList.contains("open")) {
-        resume.style.height = "0px";
-        resume.classList.remove("open");
-      } else {
-        resume.style.height = resume.scrollHeight + "px";
-        resume.classList.add("open");
-      }
-    };
+  document.querySelectorAll(".slide").forEach(slide => {
+    const btn = slide.querySelector(".btn-slide");
+    const resume = slide.querySelector(".resume-cache");
+    btn.onclick = () => toggleResume(resume);
   });
 }
 
-await chargerCarrousel();
+await chargerCarrousel(filmsCarousel);
+
+
+/* ======================== LOAD MORE ======================== */
+
+async function chargerPlusDeFilms() {
+  if (loading) return;
+
+  loading = true;
+  loader.style.display = "block";
+
+  const nouveauxFilms = get_films_random(5);
+  await chargerCarrousel(nouveauxFilms);
+
+  filmsCarousel = filmsCarousel.concat(nouveauxFilms);
+
+  loader.style.display = "none";
+  loading = false;
+}
+
+
+/* ======================== NAVIGATION ======================== */
 
 const btnPrec = document.getElementById("prec");
 const btnSuiv = document.getElementById("suiv");
@@ -113,11 +123,14 @@ btnPrec.onclick = () => {
   }
 };
 
-btnSuiv.onclick = () => {
-  if (index < filmsCarousel.length - 1) {
-    index++;
-    updateCarrousel();
+btnSuiv.onclick = async () => {
+  index++;
+
+  if (index >= filmsCarousel.length - 1) {
+    await chargerPlusDeFilms();
   }
+
+  updateCarrousel();
 };
 
 updateCarrousel();
