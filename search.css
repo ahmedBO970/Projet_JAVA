@@ -1,0 +1,95 @@
+body{
+  font-family: "Fjalla One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #101011;
+  background-color: #FEFEFF;
+}
+
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: inherit;
+  font-weight: 500;
+}
+
+nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding-top: 2vw;
+  padding-bottom: 2vw;
+  width: 100%;
+  background-color: #1D2633;
+  color: #FEFEFF;
+}
+
+.nav-gauche, .nav-droite {
+  display: flex;
+}
+
+.nav-gauche {
+  justify-content: flex-start;
+  margin-left: 15vw;
+}
+
+.nav-droite {
+  justify-content: flex-end;
+  margin-right: 15vw;
+}
+
+nav a {
+  font-size: 2vw;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+nav a:hover {
+  color: #FFD747;
+}
+
+nav img {
+  height: 5vw;
+  object-fit: contain;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+nav img:hover {
+  transform: scale(1.15);
+}
+
+.footer {
+  margin-top: 6vw;
+  background-color: #1D2633;
+  color: #FEFEFF;
+  padding: 2.5vw 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70vw;
+  margin: auto;
+}
+
+.footer-content p {
+  font-size: 1.2vw;
+  opacity: 0.8;
+  width: 15vw;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 2.5vw;
+}
+
+.footer-nav a {
+  font-size: 1.4vw;
+  transition: 0.2s;
+}
+
+.footer-nav a:hover {
+  color: #FFD747;
+}
