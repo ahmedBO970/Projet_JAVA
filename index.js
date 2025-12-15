@@ -1,5 +1,6 @@
 import { get_film, get_films_random } from "./api.js";
 
+
 const filmsPodium = {
   "podium-1": "t=Deadpool",
   "podium-2": "t=Interstellar",
@@ -17,7 +18,6 @@ async function remplirPodium() {
     img.src = data.Poster !== "N/A" ? data.Poster : "./img/no-poster.png";
 
     bloc.querySelector(".titre-podium").textContent = data.Title;
-
     bloc.querySelector(".resume-cache p").textContent = data.Plot;
 
     const bouton = bloc.querySelector(".bouton-plus");
@@ -62,7 +62,9 @@ async function chargerCarrousel(liste) {
       <div class="slide-left">
         <h2 class="slide-title">${data.Title}</h2>
         <button class="bouton-plus btn-slide">En savoir plus</button>
-        <div class="resume-cache"><p>${data.Plot}</p></div>
+        <div class="resume-cache">
+          <p>${data.Plot || "Résumé non disponible."}</p>
+        </div>
       </div>
 
       <div class="slide-right">
@@ -72,22 +74,29 @@ async function chargerCarrousel(liste) {
 
     track.appendChild(slide);
   }
-
-  activerBoutonsCarrousel();
-}
-
-function activerBoutonsCarrousel() {
-  document.querySelectorAll(".slide").forEach(slide => {
-    const btn = slide.querySelector(".btn-slide");
-    const resume = slide.querySelector(".resume-cache");
-    btn.onclick = () => toggleResume(resume);
-  });
 }
 
 await chargerCarrousel(filmsCarousel);
 
 
-/* ======================== LOAD MORE ======================== */
+
+track.addEventListener("click", (e) => {
+  const bouton = e.target.closest(".btn-slide");
+  if (!bouton) return;
+
+  const slide = bouton.closest(".slide");
+  const resume = slide.querySelector(".resume-cache");
+
+  if (resume.classList.contains("open")) {
+    resume.style.height = "0px";
+    resume.classList.remove("open");
+  } else {
+    resume.style.height = resume.scrollHeight + "px";
+    resume.classList.add("open");
+  }
+});
+
+
 
 async function chargerPlusDeFilms() {
   if (loading) return;
@@ -104,8 +113,6 @@ async function chargerPlusDeFilms() {
   loading = false;
 }
 
-
-/* ======================== NAVIGATION ======================== */
 
 const btnPrec = document.getElementById("prec");
 const btnSuiv = document.getElementById("suiv");
