@@ -1,0 +1,93 @@
+import { get_film } from "./api.js";
+
+const barreRecherche = document.querySelector(".barre");
+const resultatsSection = document.querySelector(".resultas");
+
+let timeout = null;
+let pageActuelle = 1;
+let rechercheEnCours = "";
+let chargement = false;
+
+
+function afficherFilm(data) {
+  const poster = data.Poster !== "N/A" ? data.Poster : "./img/no-poster.png";
+
+  const filmDiv = document.createElement("div");
+  filmDiv.classList.add("film-resultat");
+  filmDiv.innerHTML = `
+    <img class="affiche" src="${poster}" alt="Poster de ${data.Title}">
+    <h3 class="titre-film">${data.Title}</h3>
+    <button class="bouton-plus">En savoir plus</button>
+    <div class="resume-cache"><p>${data.Plot || "Résumé non disponible."}</p></div>
+  `;
+
+
+  const bouton = filmDiv.querySelector(".bouton-plus");
+  const resume = filmDiv.querySelector(".resume-cache");
+  bouton.onclick = () => {
+    if (resume.classList.contains("open")) {
+      resume.style.height = "0px";
+      resume.classList.remove("open");
+    } else {
+      resume.style.height = resume.scrollHeight + "px";
+      resume.classList.add("open");
+    }
+  };
+
+  resultatsSection.appendChild(filmDiv);
+}
+
+
+async function rechercherFilms(recherche, page = 1) {
+  if (chargement) return;
+  chargement = true;
+  resultatsSection.innerHTML = "<p class='loader'>Chargement...</p>";
+
+  try {
+    const url = `https://www.omdbapi.com/?apikey=15bde907&s=${encodeURIComponent(
+      recherche
+    )}&type=movie&page=${page}`;
+
+    const reponse = await fetch(url);
+    const data = await reponse.json();
+
+    resultatsSection.innerHTML = "";
+
+    if (data.Response === "False") {
+      resultatsSection.innerHTML = `<p class="info">Aucun résultat trouvé pour "${recherche}"</p>`;
+      chargement = false;
+      return;
+    }
+
+
+    for (const film of data.Search) {
+      const detail = await get_film(`i=${film.imdbID}`);
+      if (detail) afficherFilm(detail);
+    }
+  } catch (error) {
+    console.error("Erreur lors de la recherche :", error);
+    resultatsSection.innerHTML =
+      "<p class='info'>Erreur lors de la recherche, réessayez plus tard.</p>";
+  }
+
+  chargement = false;
+}
+
+
+barreRecherche.addEventListener("input", () => {
+  const texte = barreRecherche.value.trim();
+
+  if (texte.length < 3) {
+    resultatsSection.innerHTML =
+      "<p class='info'>Veuillez entrer au moins 3 lettres pour lancer la recherche</p>";
+    return;
+  }
+
+  
+  clearTimeout(timeout);
+  timeout = setTimeout(() => {
+    pageActuelle = 1;
+    rechercheEnCours = texte;
+    rechercherFilms(texte, pageActuelle);
+  }, 500);
+});

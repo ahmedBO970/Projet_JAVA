@@ -97,10 +97,10 @@ nav img:hover {
 }
 
 .barre::placeholder {
-  color: #1D2633;
+  color: #1D2633 0.3;
 }
 
-.resultas {
+.resultats {
   width: 80vw;
   margin: 6vw auto 0;
 }
