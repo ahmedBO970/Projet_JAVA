@@ -59,11 +59,6 @@ nav img:hover {
   transform: scale(1.15);
 }
 
-
-.main {
-  min-height: 60vh;
-}
-
 .titre-section {
   margin-top: 5vw;
   font-size: 3vw;
@@ -79,10 +74,10 @@ nav img:hover {
 }
 
 .info {
-  color: #101011;
   font-size: 1.4vw;
   margin-bottom: 1vw;
   margin-left: 3vw;
+  white-space: nowrap;
 }
 
 .barre {
@@ -96,16 +91,79 @@ nav img:hover {
   margin-left: 1vw;
 }
 
-.barre::placeholder {
-  color: #1D2633 0.3;
-}
-
 .resultats {
-  width: 80vw;
-  margin: 6vw auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4vw;
+  width: 92vw;
+  margin: 6vw auto;
 }
 
+.resultats .info,
+.resultats .chargement {
+  width: 100%;
+  text-align: center;
+  font-size: 1.5vw;
+  opacity: 0.7;
+  margin-top: 3vw;
+}
+.film-resultat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20vw;
+  margin-bottom: 2vw;
+}
 
+.affiche {
+  height: 28vw;
+  width: 18vw;
+  border-radius: 1vw;
+  box-shadow: 0 0.6vw 1vw rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+}
+
+.titre-film {
+  color: #101011;
+  font-size: 2vw;
+}
+
+.bouton-plus {
+  font-size: 1.5vw;
+  padding: 1vw 6vw;
+  background-color: #FFD747;
+  color: #101011;
+  border: none;
+  border-radius: 0.8vw;
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.4s;
+  transform: translateY(1vw);
+  box-shadow: 0 0.6vw 1vw rgba(0, 0, 0, 0.15);
+}
+
+.bouton-plus:hover {
+  transform: translateY(1vw) scale(1.1);
+}
+
+.resume-cache {
+  width: 20vw;
+  background-color: #FFD747;
+  color: #101011;
+  border-radius: 1vw;
+  margin-top: 1vw;
+  overflow: hidden;
+  height: 0px;
+  box-shadow: 0 0.6vw 1vw rgba(0, 0, 0, 0.15);
+  transition: height 0.4s ease;
+}
+
+.resume-cache p {
+  font-size: 1.1vw;
+  padding: 1.5vw;
+  line-height: 1.5;
+}
 
 .footer {
   margin-top: 6vw;

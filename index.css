@@ -223,14 +223,14 @@ h3{
   z-index: 1;
 }
 
-.slide-left {
+.slide-gauche {
   position: relative;
   z-index: 10;
   width: 45%;
   padding-left: 4vw;
 }
 
-.slide-title {
+.slide-titre {
   color: #FEFEFF;
   width: 50vw;
   font-size: 4vw;
@@ -254,7 +254,7 @@ h3{
   font-size: 1.3vw;
 }
 
-.slide-right {
+.slide-droite {
   position: relative;
   z-index: 10;
   width: 40%;

@@ -59,15 +59,15 @@ async function chargerCarrousel(liste) {
     slide.innerHTML = `
       <div class="slide-bg" style="background-image:url('${poster}')"></div>
 
-      <div class="slide-left">
-        <h2 class="slide-title">${data.Title}</h2>
-        <button class="bouton-plus btn-slide">En savoir plus</button>
-        <div class="resume-cache">
+      <div class="slide-gauche">
+        <h2 class="slide-titre">${data.Title}</h2>
+        <button class="bouton-plus" id="btn-slide">En savoir plus</button>
+        <div class="resume-cache" id="resume-slide">
           <p>${data.Plot || "Résumé non disponible."}</p>
         </div>
       </div>
 
-      <div class="slide-right">
+      <div class="slide-droite">
         <img class="slide-poster" src="${poster}">
       </div>
     `;
@@ -81,7 +81,7 @@ await chargerCarrousel(filmsCarousel);
 
 
 track.addEventListener("click", (e) => {
-  const bouton = e.target.closest(".btn-slide");
+  const bouton = e.target.closest("#btn-slide");
   if (!bouton) return;
 
   const slide = bouton.closest(".slide");

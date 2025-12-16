@@ -1,7 +1,7 @@
 import { get_film } from "./api.js";
 
 const barreRecherche = document.querySelector(".barre");
-const resultatsSection = document.querySelector(".resultas");
+const resultatsSection = document.querySelector(".resultats");
 
 let timeout = null;
 let pageActuelle = 1;
@@ -41,7 +41,7 @@ function afficherFilm(data) {
 async function rechercherFilms(recherche, page = 1) {
   if (chargement) return;
   chargement = true;
-  resultatsSection.innerHTML = "<p class='loader'>Chargement...</p>";
+  resultatsSection.innerHTML = '<p class="chargement">Chargement...</p>';
 
   try {
     const url = `https://www.omdbapi.com/?apikey=15bde907&s=${encodeURIComponent(
@@ -67,7 +67,7 @@ async function rechercherFilms(recherche, page = 1) {
   } catch (error) {
     console.error("Erreur lors de la recherche :", error);
     resultatsSection.innerHTML =
-      "<p class='info'>Erreur lors de la recherche, réessayez plus tard.</p>";
+      '<p class="info">Erreur lors de la recherche, réessayez plus tard.</p>';
   }
 
   chargement = false;
@@ -79,7 +79,7 @@ barreRecherche.addEventListener("input", () => {
 
   if (texte.length < 3) {
     resultatsSection.innerHTML =
-      "<p class='info'>Veuillez entrer au moins 3 lettres pour lancer la recherche</p>";
+      '<p class="info">Veuillez entrer au moins 3 lettres pour lancer la recherche</p>';
     return;
   }
 
