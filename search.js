@@ -8,7 +8,6 @@ let pageActuelle = 1;
 let rechercheEnCours = "";
 let chargement = false;
 let totalResultats = 0;
-let filmsAffiches = 0;
 
 const LIMITE_FILMS = 8;
 
@@ -19,9 +18,7 @@ function afficherFilm(data) {
   filmDiv.classList.add("film-resultat");
 
   filmDiv.innerHTML = `
-    <a href="movie.html?id=${data.imdbID}">
-      <img class="affiche" src="${poster}" alt="Poster de ${data.Title}">
-    </a>
+    <img class="affiche" src="${poster}" alt="Poster de ${data.Title}">
     <h3 class="titre-film">${data.Title}</h3>
     <button class="bouton-plus">En savoir plus</button>
     <div class="resume-cache">
@@ -32,7 +29,7 @@ function afficherFilm(data) {
   const bouton = filmDiv.querySelector(".bouton-plus");
   const resume = filmDiv.querySelector(".resume-cache");
 
-  bouton.addEventListener("click", () => {
+  bouton.onclick = () => {
     if (resume.classList.contains("open")) {
       resume.style.height = "0px";
       resume.classList.remove("open");
@@ -40,17 +37,36 @@ function afficherFilm(data) {
       resume.style.height = resume.scrollHeight + "px";
       resume.classList.add("open");
     }
-  });
+  };
 
   resultatsSection.appendChild(filmDiv);
 }
 
-async function rechercherFilms(recherche, page = 1) {
+function afficherBoutonChargerPlus() {
+  const boutonExistant = document.querySelector(".charger-btn");
+  if (boutonExistant) boutonExistant.remove();
+
+  if (pageActuelle * 10 >= totalResultats) return;
+
+  const bouton = document.createElement("button");
+  bouton.textContent = "Charger plus";
+  bouton.className = "charger-btn";
+
+  bouton.onclick = () => {
+    pageActuelle++;
+    rechercherFilms(rechercheEnCours, pageActuelle, true);
+  };
+
+  resultatsSection.appendChild(bouton);
+}
+
+async function rechercherFilms(recherche, page = 1, ajout = false) {
   if (chargement) return;
   chargement = true;
 
-  resultatsSection.innerHTML = '<p class="chargement">Chargement...</p>';
-  filmsAffiches = 0;
+  if (!ajout) {
+    resultatsSection.innerHTML = '<p class="chargement">Chargement...</p>';
+  }
 
   try {
     const url = `https://www.omdbapi.com/?apikey=15bde907&s=${encodeURIComponent(
@@ -61,21 +77,27 @@ async function rechercherFilms(recherche, page = 1) {
     const data = await reponse.json();
 
     if (data.Response === "False") {
-      resultatsSection.innerHTML = `<p class="info">Aucun résultat trouvé</p>`;
+      resultatsSection.innerHTML = `<p class="info">Aucun résultat trouvé pour "${recherche}"</p>`;
       chargement = false;
       return;
     }
 
-    resultatsSection.innerHTML = "";
+    if (!ajout) resultatsSection.innerHTML = "";
+
     totalResultats = Number(data.totalResults);
 
-    for (const film of data.Search.slice(0, LIMITE_FILMS)) {
+    const filmsAafficher = data.Search.slice(0, LIMITE_FILMS);
+
+    for (const film of filmsAafficher) {
       const detail = await get_film(`i=${film.imdbID}`);
       if (detail) afficherFilm(detail);
     }
-  } catch (e) {
+
+    afficherBoutonChargerPlus();
+  } catch (error) {
+    console.error("Erreur lors de la recherche :", error);
     resultatsSection.innerHTML =
-      '<p class="info">Erreur lors de la recherche</p>';
+      '<p class="info">Erreur lors de la recherche, réessayez plus tard.</p>';
   }
 
   chargement = false;
@@ -86,12 +108,14 @@ barreRecherche.addEventListener("input", () => {
 
   if (texte.length < 3) {
     resultatsSection.innerHTML =
-      '<p class="info">Veuillez entrer au moins 3 lettres</p>';
+      '<p class="info">Veuillez entrer au moins 3 lettres pour lancer la recherche</p>';
     return;
   }
 
   clearTimeout(timeout);
   timeout = setTimeout(() => {
+    pageActuelle = 1;
+    rechercheEnCours = texte;
     rechercherFilms(texte);
   }, 500);
 });

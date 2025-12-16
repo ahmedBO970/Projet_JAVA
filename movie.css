@@ -83,7 +83,7 @@ nav img:hover {
   justify-content: center;
 }
 
-.movie-poster {
+.affiche {
   width: 100%;
   max-width: 28vw;
   border-radius: 1vw;
@@ -160,3 +160,136 @@ nav img:hover {
 .footer-nav a:hover {
   color: #FFD747;
 }
+
+@media (max-width: 1024px) {
+  nav a {
+    font-size: 3vw;
+  }
+
+  .nav-gauche {
+    margin-left: 10vw;
+  }
+
+  .nav-droite {
+    margin-right: 10vw;
+  }
+
+  nav img {
+    height: 8vw;
+  }
+
+  .titre-section {
+    font-size: 4vw;
+  }
+
+  .movie {
+    gap: 4vw;
+  }
+
+  .movie-poster {
+    max-width: 34vw;
+  }
+
+  .movie-titre {
+    font-size: 5vw;
+  }
+
+  .movie-info {
+    font-size: 2vw;
+  }
+
+  .movie-note {
+    font-size: 2.2vw;
+  }
+
+  .movie-synopsis {
+    font-size: 2.8vw;
+  }
+
+  .movie-resume {
+    font-size: 2vw;
+    max-width: 45vw;
+  }
+
+  .footer-content {
+    width: 80vw;
+  }
+
+  .footer-content p {
+    font-size: 2vw;
+    width: 30vw;
+  }
+
+  .footer-nav a {
+    font-size: 2vw;
+  }
+}
+
+@media (max-width: 768px) {
+  nav a {
+    font-size: 4vw;
+  }
+
+  .nav-gauche {
+    margin-left: 7vw;
+  }
+
+  .nav-droite {
+    margin-right: 7vw;
+  }
+
+  .titre-section {
+    font-size: 5vw;
+    margin-bottom: 6vw;
+  }
+
+  .movie {
+    flex-direction: column;
+    gap: 8vw;
+  }
+
+  .movie-gauche,
+  .movie-droite {
+    width: 100%;
+    text-align: center;
+  }
+
+  .movie-poster {
+    max-width: 70vw;
+  }
+
+  .movie-titre {
+    font-size: 6vw;
+  }
+
+  .movie-info {
+    font-size: 3vw;
+  }
+
+  .movie-note {
+    font-size: 3.5vw;
+  }
+
+  .movie-synopsis {
+    font-size: 4vw;
+  }
+
+  .movie-resume {
+    font-size: 3vw;
+    max-width: 80vw;
+    margin: auto;
+  }
+
+  .footer-content {
+    gap: 4vw;
+  }
+
+  .footer-content p {
+    font-size: 3vw;
+  }
+
+  .footer-nav a {
+    font-size: 3vw;
+  }
+}
+

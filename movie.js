@@ -12,7 +12,7 @@ async function chargerFilm() {
   const data = await get_film(`i=${idFilm}`);
   if (!data) return;
 
-  document.querySelector(".movie-poster").src =
+  document.querySelector(".affiche").src =
     data.Poster !== "N/A" ? data.Poster : "./img/no-poster.png";
 
   document.querySelector(".movie-titre").textContent = data.Title;

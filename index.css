@@ -92,6 +92,12 @@ nav img:hover {
   border-radius: 1vw;
   box-shadow: 0 0.6vw 1vw rgba(0, 0, 0, 0.15);
   object-fit: cover;
+  transition: filter 0.6s ease;
+  cursor: pointer;
+}
+
+.affiche:hover{
+  filter: brightness(0.75);
 }
 
 h3{
@@ -268,6 +274,12 @@ h3{
   object-fit: cover;
   border-radius: 1vw;
   box-shadow: 0 0.5vw 1.5vw rgba(0,0,0,0.4);
+transition: filter 0.6s ease;
+  cursor: pointer;
+}
+
+.slide-poster:hover{
+  filter: brightness(0.75);
 }
 
 .slide-btn {
@@ -333,4 +345,195 @@ h3{
 
 .footer-nav a:hover {
   color: #FFD747;
+}
+
+@media (max-width: 1024px) {
+  nav a {
+    font-size: 3vw;
+  }
+
+  .nav-gauche {
+    margin-left: 10vw;
+  }
+
+  .nav-droite {
+    margin-right: 10vw;
+  }
+
+  nav img {
+    height: 8vw;
+  }
+
+  .titre-section {
+    font-size: 4vw;
+  }
+
+  .podium {
+    gap: 6vw;
+  }
+
+  .titre-podium {
+    font-size: 3vw;
+  }
+
+  .bouton-plus {
+    font-size: 2vw;
+    padding: 1vw 8vw;
+  }
+
+  .resume-cache p{
+    font-size: 1.6vw;
+  }
+  
+  .slide {
+    height: 50vw;
+  }
+
+  .slide-poster {
+    width: 25vw;
+    height: auto;
+    margin-left: 8vw;
+  }
+
+  .slide-titre {
+    font-size: 5vw;
+  }
+
+  #btn-slide {
+    font-size: 2.5vw;
+    width: 40vw;
+  }
+
+  #resume-slide {
+    width: 40vw;
+  }
+
+  #resume-slide p {
+    font-size: 1.8vw;
+  }
+
+  .footer-content {
+    width: 80vw;
+  }
+
+  .footer-content p {
+    font-size: 2vw;
+    width: 30vw;
+  }
+
+  .footer-nav {
+    gap: 4vw;
+  }
+
+  .footer-nav a {
+    font-size: 2vw;
+  }
+}
+
+@media (max-width: 768px) {
+  nav a {
+    font-size: 4vw;
+  }
+  
+  .nav-gauche {
+    margin-left: 7vw;
+  }
+
+  .nav-droite {
+    margin-right: 7vw;
+  }
+  
+  .titre-section {
+    font-size: 5vw;
+    margin-bottom: 6vw;
+    margin-top: 2vw;
+  }
+
+  .podium {
+    flex-direction: column;
+    align-items: center;
+    gap: 10vw;
+  }
+
+  #podium-1 .affiche,
+  #podium-2 .affiche,
+  #podium-3 .affiche {
+    width: 50vw;
+    height: auto;
+  }
+
+  #podium-1 .rang,
+  #podium-2 .rang,
+  #podium-3 .rang {
+    font-size: 4vw;
+    padding: 0.7vw 2vw;
+    right: 7vw;
+  }
+
+  .titre-podium {
+    font-size: 5vw;
+  }
+
+  .bouton-plus {
+    font-size: 4vw;
+    padding: 2vw 22vw;
+  }
+
+  .resume-cache{
+    width: 70vw;
+    margin-bottom: 6vw;
+  }
+
+  .slide-btn {
+    font-size: 5vw;
+    padding: 3vw;
+  }
+  
+  .slide {
+    height: 60vw;
+  }
+
+  .slide-gauche {
+    width: 40%;
+  }
+
+  .slide-titre {
+    font-size: 5vw;
+  }
+
+  .slide-droite {
+    width: 50%;
+  }
+
+  .slide-poster {
+    width: 25vw;
+    height: auto;
+    margin-left: 8vw;
+  }
+
+  #btn-slide {
+    width: 35vw;
+    font-size: 3vw;
+  }
+
+  #resume-slide {
+    width: 35vw;
+    margin-bottom: 5vw;
+  }
+
+  #resume-slide p {
+    font-size: 2vw;
+  }
+
+  .footer-content {
+    gap: 4vw;
+  }
+
+  .footer-content p {
+    font-size: 3vw;
+  }
+
+  .footer-nav a {
+    font-size: 3vw;
+  }
 }

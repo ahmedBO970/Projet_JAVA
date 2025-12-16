@@ -94,6 +94,7 @@ nav img:hover {
 .resultats {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 4vw;
   width: 92vw;
   margin: 6vw auto;
@@ -121,6 +122,12 @@ nav img:hover {
   border-radius: 1vw;
   box-shadow: 0 0.6vw 1vw rgba(0, 0, 0, 0.15);
   object-fit: cover;
+  transition: filter 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.affiche:hover{
+  filter: brightness(0.75);
 }
 
 .titre-film {
@@ -219,3 +226,155 @@ nav img:hover {
 .footer-nav a:hover {
   color: #FFD747;
 }
+
+@media (max-width: 1024px) {
+  nav a {
+    font-size: 3vw;
+  }
+
+  .nav-gauche {
+    margin-left: 10vw;
+  }
+
+  .nav-droite {
+    margin-right: 10vw;
+  }
+
+  nav img {
+    height: 8vw;
+  }
+
+  .titre-section {
+    font-size: 4vw;
+  }
+
+  .info {
+    font-size: 2vw;
+  }
+
+  .barre {
+    font-size: 2.2vw;
+    padding: 2.2vw 3vw;
+  }
+
+  .film-resultat {
+    width: 28vw;
+  }
+
+  .affiche {
+    width: 24vw;
+    height: auto;
+  }
+
+  .titre-film {
+    font-size: 2.6vw;
+  }
+
+  .bouton-plus {
+    font-size: 2.2vw;
+    padding: 1.5vw 8vw;
+  }
+
+  .resume-cache {
+    width: 26vw;
+  }
+
+  .resume-cache p {
+    font-size: 1.6vw;
+  }
+
+  .charger-btn {
+    font-size: 2.5vw;
+    padding: 1.5vw 10vw;
+  }
+
+  .footer-content {
+    width: 80vw;
+  }
+
+  .footer-content p {
+    font-size: 2vw;
+    width: 30vw;
+  }
+
+  .footer-nav a {
+    font-size: 2vw;
+  }
+}
+
+@media (max-width: 768px) {
+  nav a {
+    font-size: 4vw;
+  }
+
+  .nav-gauche {
+    margin-left: 7vw;
+  }
+
+  .nav-droite {
+    margin-right: 7vw;
+  }
+
+  .titre-section {
+    font-size: 5vw;
+    margin-bottom: 6vw;
+  }
+
+  .info {
+    font-size: 3vw;
+    margin-left: 5vw;
+  }
+
+  .barre {
+    font-size: 3.5vw;
+    padding: 3vw 4vw;
+    width: 88vw;
+  }
+
+  .resultats {
+    justify-content: center;
+  }
+
+  .film-resultat {
+    width: 70vw;
+  }
+
+  .affiche {
+    width: 60vw;
+  }
+
+  .titre-film {
+    font-size: 4.5vw;
+  }
+
+  .bouton-plus {
+    font-size: 4vw;
+    padding: 2vw 20vw;
+  }
+
+  .resume-cache {
+    width: 70vw;
+  }
+
+  .resume-cache p {
+    font-size: 2.8vw;
+  }
+
+  .charger-btn {
+    font-size: 4vw;
+    padding: 2.5vw 20vw;
+  }
+
+  .footer-content {
+    gap: 4vw;
+  }
+
+  .footer-content p {
+    font-size: 3vw;
+  }
+
+  .footer-nav a {
+    font-size: 3vw;
+  }
+}
+
