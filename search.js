@@ -1,4 +1,8 @@
+// ---------------- IMPORT ----------------
+
 import { get_film } from "./api.js";
+
+// ---------------- VARIABLES ----------------
 
 const barreRecherche = document.querySelector(".barre");
 const resultatsSection = document.querySelector(".resultats");
@@ -11,6 +15,8 @@ let totalResultats = 0;
 
 const LIMITE_FILMS = 8;
 
+// ---------------- AFFICHAGE FILM ----------------
+
 function afficherFilm(data) {
   const poster = data.Poster !== "N/A" ? data.Poster : "./img/no-poster.png";
 
@@ -18,7 +24,7 @@ function afficherFilm(data) {
   filmDiv.classList.add("film-resultat");
 
   filmDiv.innerHTML = `
-    <img class="affiche" src="${poster}" alt="Poster de ${data.Title}">
+    <img class="affiche" src="${poster}">
     <h3 class="titre-film">${data.Title}</h3>
     <button class="bouton-plus">En savoir plus</button>
     <div class="resume-cache">
@@ -42,6 +48,8 @@ function afficherFilm(data) {
   resultatsSection.appendChild(filmDiv);
 }
 
+// ---------------- BOUTON CHARGER PLUS ----------------
+
 function afficherBoutonChargerPlus() {
   const boutonExistant = document.querySelector(".charger-btn");
   if (boutonExistant) boutonExistant.remove();
@@ -60,6 +68,8 @@ function afficherBoutonChargerPlus() {
   resultatsSection.appendChild(bouton);
 }
 
+// ---------------- RECHERCHE ----------------
+
 async function rechercherFilms(recherche, page = 1, ajout = false) {
   if (chargement) return;
   chargement = true;
@@ -77,7 +87,7 @@ async function rechercherFilms(recherche, page = 1, ajout = false) {
     const data = await reponse.json();
 
     if (data.Response === "False") {
-      resultatsSection.innerHTML = `<p class="info">Aucun résultat trouvé pour "${recherche}"</p>`;
+      resultatsSection.innerHTML = `<p class="info">Aucun résultat trouvé</p>`;
       chargement = false;
       return;
     }
@@ -95,20 +105,21 @@ async function rechercherFilms(recherche, page = 1, ajout = false) {
 
     afficherBoutonChargerPlus();
   } catch (error) {
-    console.error("Erreur lors de la recherche :", error);
     resultatsSection.innerHTML =
-      '<p class="info">Erreur lors de la recherche, réessayez plus tard.</p>';
+      '<p class="info">Erreur lors de la recherche</p>';
   }
 
   chargement = false;
 }
+
+// ---------------- INPUT ----------------
 
 barreRecherche.addEventListener("input", () => {
   const texte = barreRecherche.value.trim();
 
   if (texte.length < 3) {
     resultatsSection.innerHTML =
-      '<p class="info">Veuillez entrer au moins 3 lettres pour lancer la recherche</p>';
+      '<p class="info">Veuillez entrer au moins 3 lettres</p>';
     return;
   }
 

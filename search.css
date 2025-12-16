@@ -1,3 +1,4 @@
+/* ---------------- GLOBAL ---------------- */
 body{
   font-family: "Fjalla One", sans-serif;
   font-weight: 400;
@@ -6,14 +7,15 @@ body{
   background-color: #FEFEFF;
 }
 
-a {
+a{
   text-decoration: none;
   text-transform: uppercase;
   color: inherit;
   font-weight: 500;
 }
 
-nav {
+/* ---------------- NAVIGATION ---------------- */
+nav{
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
@@ -24,42 +26,44 @@ nav {
   color: #FEFEFF;
 }
 
-.nav-gauche, .nav-droite {
+.nav-gauche,
+.nav-droite{
   display: flex;
 }
 
-.nav-gauche {
+.nav-gauche{
   justify-content: flex-start;
   margin-left: 15vw;
 }
 
-.nav-droite {
+.nav-droite{
   justify-content: flex-end;
   margin-right: 15vw;
 }
 
-nav a {
+nav a{
   font-size: 2vw;
   transition: 0.2s;
   cursor: pointer;
 }
 
-nav a:hover {
+nav a:hover{
   color: #FFD747;
 }
 
-nav img {
+nav img{
   height: 5vw;
   object-fit: contain;
   transition: 0.3s;
   cursor: pointer;
 }
 
-nav img:hover {
+nav img:hover{
   transform: scale(1.15);
 }
 
-.titre-section {
+/* ---------------- TITRE ---------------- */
+.titre-section{
   margin-top: 5vw;
   font-size: 3vw;
   margin-bottom: 4vw;
@@ -67,20 +71,21 @@ nav img:hover {
   text-align: center;
 }
 
-.recherche {
+/* ---------------- BARRE DE RECHERCHE ---------------- */
+.recherche{
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
-.info {
+.info{
   font-size: 1.4vw;
   margin-bottom: 1vw;
   margin-left: 3vw;
   white-space: nowrap;
 }
 
-.barre {
+.barre{
   width: 90vw;
   padding: 1.8vw 2.5vw;
   font-size: 1.6vw;
@@ -91,24 +96,26 @@ nav img:hover {
   margin-left: 1vw;
 }
 
-.resultats {
+/* ---------------- RÉSULTATS ---------------- */
+.resultats{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 4vw;
   width: 92vw;
   margin: 6vw auto;
 }
 
 .resultats .info,
-.resultats .chargement {
+.resultats .chargement{
   width: 100%;
   text-align: center;
   font-size: 1.5vw;
   opacity: 0.7;
   margin-top: 3vw;
 }
-.film-resultat {
+
+/* ---------------- FILM ---------------- */
+.film-resultat{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -116,26 +123,21 @@ nav img:hover {
   margin-bottom: 2vw;
 }
 
-.affiche {
+.affiche{
   height: 28vw;
   width: 18vw;
   border-radius: 1vw;
   box-shadow: 0 0.6vw 1vw rgba(0, 0, 0, 0.15);
   object-fit: cover;
-  transition: filter 0.3s ease, transform 0.3s ease;
-  cursor: pointer;
 }
 
-.affiche:hover{
-  filter: brightness(0.75);
-}
-
-.titre-film {
+.titre-film{
   color: #101011;
   font-size: 2vw;
 }
 
-.bouton-plus {
+/* ---------------- BOUTON + RÉSUMÉ ---------------- */
+.bouton-plus{
   font-size: 1.5vw;
   padding: 1vw 6vw;
   background-color: #FFD747;
@@ -150,11 +152,11 @@ nav img:hover {
   box-shadow: 0 0.6vw 1vw rgba(0, 0, 0, 0.15);
 }
 
-.bouton-plus:hover {
+.bouton-plus:hover{
   transform: translateY(1vw) scale(1.1);
 }
 
-.resume-cache {
+.resume-cache{
   width: 20vw;
   background-color: #FFD747;
   color: #101011;
@@ -166,13 +168,14 @@ nav img:hover {
   transition: height 0.4s ease;
 }
 
-.resume-cache p {
+.resume-cache p{
   font-size: 1.1vw;
   padding: 1.5vw;
   line-height: 1.5;
 }
 
-.charger-btn {
+/* ---------------- BOUTON CHARGER PLUS ---------------- */
+.charger-btn{
   font-size: 1.8vw;
   padding: 1vw 7vw;
   background: rgba(0, 0, 0, 0.4);
@@ -184,22 +187,23 @@ nav img:hover {
   cursor: pointer;
   transition: 0.4s;
   transform: translateY(1vw);
-  box-shadow: 0 0.6vw 1vw rgba(0, 0, 0, 0.15)
+  box-shadow: 0 0.6vw 1vw rgba(0, 0, 0, 0.15);
 }
 
-.charger-btn:hover {
+.charger-btn:hover{
   background: #1D2633;
   color: #CFD1DA;
 }
 
-.footer {
+/* ---------------- FOOTER ---------------- */
+.footer{
   margin-top: 6vw;
   background-color: #1D2633;
   color: #FEFEFF;
   padding: 2.5vw 0;
 }
 
-.footer-content {
+.footer-content{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -207,174 +211,22 @@ nav img:hover {
   margin: auto;
 }
 
-.footer-content p {
+.footer-content p{
   font-size: 1.2vw;
   opacity: 0.8;
   width: 15vw;
 }
 
-.footer-nav {
+.footer-nav{
   display: flex;
   gap: 2.5vw;
 }
 
-.footer-nav a {
+.footer-nav a{
   font-size: 1.4vw;
   transition: 0.2s;
 }
 
-.footer-nav a:hover {
+.footer-nav a:hover{
   color: #FFD747;
 }
-
-@media (max-width: 1024px) {
-  nav a {
-    font-size: 3vw;
-  }
-
-  .nav-gauche {
-    margin-left: 10vw;
-  }
-
-  .nav-droite {
-    margin-right: 10vw;
-  }
-
-  nav img {
-    height: 8vw;
-  }
-
-  .titre-section {
-    font-size: 4vw;
-  }
-
-  .info {
-    font-size: 2vw;
-  }
-
-  .barre {
-    font-size: 2.2vw;
-    padding: 2.2vw 3vw;
-  }
-
-  .film-resultat {
-    width: 28vw;
-  }
-
-  .affiche {
-    width: 24vw;
-    height: auto;
-  }
-
-  .titre-film {
-    font-size: 2.6vw;
-  }
-
-  .bouton-plus {
-    font-size: 2.2vw;
-    padding: 1.5vw 8vw;
-  }
-
-  .resume-cache {
-    width: 26vw;
-  }
-
-  .resume-cache p {
-    font-size: 1.6vw;
-  }
-
-  .charger-btn {
-    font-size: 2.5vw;
-    padding: 1.5vw 10vw;
-  }
-
-  .footer-content {
-    width: 80vw;
-  }
-
-  .footer-content p {
-    font-size: 2vw;
-    width: 30vw;
-  }
-
-  .footer-nav a {
-    font-size: 2vw;
-  }
-}
-
-@media (max-width: 768px) {
-  nav a {
-    font-size: 4vw;
-  }
-
-  .nav-gauche {
-    margin-left: 7vw;
-  }
-
-  .nav-droite {
-    margin-right: 7vw;
-  }
-
-  .titre-section {
-    font-size: 5vw;
-    margin-bottom: 6vw;
-  }
-
-  .info {
-    font-size: 3vw;
-    margin-left: 5vw;
-  }
-
-  .barre {
-    font-size: 3.5vw;
-    padding: 3vw 4vw;
-    width: 88vw;
-  }
-
-  .resultats {
-    justify-content: center;
-  }
-
-  .film-resultat {
-    width: 70vw;
-  }
-
-  .affiche {
-    width: 60vw;
-  }
-
-  .titre-film {
-    font-size: 4.5vw;
-  }
-
-  .bouton-plus {
-    font-size: 4vw;
-    padding: 2vw 20vw;
-  }
-
-  .resume-cache {
-    width: 70vw;
-  }
-
-  .resume-cache p {
-    font-size: 2.8vw;
-  }
-
-  .charger-btn {
-    font-size: 4vw;
-    padding: 2.5vw 20vw;
-  }
-
-  .footer-content {
-    gap: 4vw;
-  }
-
-  .footer-content p {
-    font-size: 3vw;
-  }
-
-  .footer-nav a {
-    font-size: 3vw;
-  }
-}
-

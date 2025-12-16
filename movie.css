@@ -1,3 +1,4 @@
+/* ---------------- GLOBAL ---------------- */
 body{
   font-family: "Fjalla One", sans-serif;
   font-weight: 400;
@@ -6,14 +7,15 @@ body{
   background-color: #FEFEFF;
 }
 
-a {
+a{
   text-decoration: none;
   text-transform: uppercase;
   color: inherit;
   font-weight: 500;
 }
 
-nav {
+/* ---------------- NAVIGATION ---------------- */
+nav{
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
@@ -24,42 +26,44 @@ nav {
   color: #FEFEFF;
 }
 
-.nav-gauche, .nav-droite {
+.nav-gauche,
+.nav-droite{
   display: flex;
 }
 
-.nav-gauche {
+.nav-gauche{
   justify-content: flex-start;
   margin-left: 15vw;
 }
 
-.nav-droite {
+.nav-droite{
   justify-content: flex-end;
   margin-right: 15vw;
 }
 
-nav a {
+nav a{
   font-size: 2vw;
   transition: 0.2s;
   cursor: pointer;
 }
 
-nav a:hover {
+nav a:hover{
   color: #FFD747;
 }
 
-nav img {
+nav img{
   height: 5vw;
   object-fit: contain;
   transition: 0.3s;
   cursor: pointer;
 }
 
-nav img:hover {
+nav img:hover{
   transform: scale(1.15);
 }
 
-.titre-section {
+/* ---------------- TITRE ---------------- */
+.titre-section{
   margin-top: 5vw;
   font-size: 3vw;
   margin-bottom: 4vw;
@@ -67,8 +71,8 @@ nav img:hover {
   text-align: center;
 }
 
-
-.movie {
+/* ---------------- LAYOUT FILM ---------------- */
+.movie{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,13 +81,14 @@ nav img:hover {
   margin: 6vw auto;
 }
 
-.movie-gauche {
+/* ---------------- PARTIE GAUCHE ---------------- */
+.movie-gauche{
   width: 40%;
   display: flex;
   justify-content: center;
 }
 
-.affiche {
+.movie-poster{
   width: 100%;
   max-width: 28vw;
   border-radius: 1vw;
@@ -91,49 +96,49 @@ nav img:hover {
   object-fit: cover;
 }
 
-.movie-droite {
+/* ---------------- PARTIE DROITE ---------------- */
+.movie-droite{
   width: 50%;
 }
 
-.movie-titre {
+.movie-titre{
   font-size: 4vw;
   margin-bottom: 1.5vw;
   color: #101011;
 }
 
-.movie-info {
+.movie-info{
   font-size: 1.5vw;
   opacity: 0.8;
   margin-bottom: 1vw;
 }
 
-.movie-note {
+.movie-note{
   font-size: 1.6vw;
   margin-bottom: 3vw;
 }
 
-.movie-synopsis {
+.movie-synopsis{
   font-size: 2.2vw;
   margin-bottom: 1vw;
 }
 
-.movie-resume {
+.movie-resume{
   font-size: 1.4vw;
   line-height: 1.6;
   margin-bottom: 3vw;
   max-width: 40vw;
 }
 
-
-
-.footer {
+/* ---------------- FOOTER ---------------- */
+.footer{
   margin-top: 6vw;
   background-color: #1D2633;
   color: #FEFEFF;
   padding: 2.5vw 0;
 }
 
-.footer-content {
+.footer-content{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -141,155 +146,22 @@ nav img:hover {
   margin: auto;
 }
 
-.footer-content p {
+.footer-content p{
   font-size: 1.2vw;
   opacity: 0.8;
   width: 15vw;
 }
 
-.footer-nav {
+.footer-nav{
   display: flex;
   gap: 2.5vw;
 }
 
-.footer-nav a {
+.footer-nav a{
   font-size: 1.4vw;
   transition: 0.2s;
 }
 
-.footer-nav a:hover {
+.footer-nav a:hover{
   color: #FFD747;
 }
-
-@media (max-width: 1024px) {
-  nav a {
-    font-size: 3vw;
-  }
-
-  .nav-gauche {
-    margin-left: 10vw;
-  }
-
-  .nav-droite {
-    margin-right: 10vw;
-  }
-
-  nav img {
-    height: 8vw;
-  }
-
-  .titre-section {
-    font-size: 4vw;
-  }
-
-  .movie {
-    gap: 4vw;
-  }
-
-  .movie-poster {
-    max-width: 34vw;
-  }
-
-  .movie-titre {
-    font-size: 5vw;
-  }
-
-  .movie-info {
-    font-size: 2vw;
-  }
-
-  .movie-note {
-    font-size: 2.2vw;
-  }
-
-  .movie-synopsis {
-    font-size: 2.8vw;
-  }
-
-  .movie-resume {
-    font-size: 2vw;
-    max-width: 45vw;
-  }
-
-  .footer-content {
-    width: 80vw;
-  }
-
-  .footer-content p {
-    font-size: 2vw;
-    width: 30vw;
-  }
-
-  .footer-nav a {
-    font-size: 2vw;
-  }
-}
-
-@media (max-width: 768px) {
-  nav a {
-    font-size: 4vw;
-  }
-
-  .nav-gauche {
-    margin-left: 7vw;
-  }
-
-  .nav-droite {
-    margin-right: 7vw;
-  }
-
-  .titre-section {
-    font-size: 5vw;
-    margin-bottom: 6vw;
-  }
-
-  .movie {
-    flex-direction: column;
-    gap: 8vw;
-  }
-
-  .movie-gauche,
-  .movie-droite {
-    width: 100%;
-    text-align: center;
-  }
-
-  .movie-poster {
-    max-width: 70vw;
-  }
-
-  .movie-titre {
-    font-size: 6vw;
-  }
-
-  .movie-info {
-    font-size: 3vw;
-  }
-
-  .movie-note {
-    font-size: 3.5vw;
-  }
-
-  .movie-synopsis {
-    font-size: 4vw;
-  }
-
-  .movie-resume {
-    font-size: 3vw;
-    max-width: 80vw;
-    margin: auto;
-  }
-
-  .footer-content {
-    gap: 4vw;
-  }
-
-  .footer-content p {
-    font-size: 3vw;
-  }
-
-  .footer-nav a {
-    font-size: 3vw;
-  }
-}
-

@@ -1,5 +1,8 @@
+// ---------------- IMPORTS ----------------
+
 import { get_film, get_films_random } from "./api.js";
 
+// ---------------- PODIUM ----------------
 
 const filmsPodium = {
   "podium-1": "t=Deadpool",
@@ -42,7 +45,7 @@ async function remplirPodium() {
 
 window.onload = remplirPodium;
 
-
+// ---------------- CARROUSEL ----------------
 
 let filmsCarousel = get_films_random(5);
 let index = 0;
@@ -63,7 +66,6 @@ async function chargerCarrousel(liste) {
 
     slide.innerHTML = `
       <div class="slide-bg" style="background-image:url('${poster}')"></div>
-
       <div class="slide-gauche">
         <h2 class="slide-titre">${data.Title}</h2>
         <button class="bouton-plus" id="btn-slide">En savoir plus</button>
@@ -71,7 +73,6 @@ async function chargerCarrousel(liste) {
           <p>${data.Plot || "Résumé non disponible."}</p>
         </div>
       </div>
-
       <div class="slide-droite">
         <a href="movie.html?id=${data.imdbID}">
           <img class="slide-poster" src="${poster}">
@@ -85,7 +86,7 @@ async function chargerCarrousel(liste) {
 
 await chargerCarrousel(filmsCarousel);
 
-
+// ---------------- RESUME SLIDE ----------------
 
 track.addEventListener("click", (e) => {
   const bouton = e.target.closest("#btn-slide");
@@ -103,7 +104,7 @@ track.addEventListener("click", (e) => {
   }
 });
 
-
+// ---------------- CHARGER PLUS ----------------
 
 async function chargerPlusDeFilms() {
   if (loading) return;
@@ -120,6 +121,7 @@ async function chargerPlusDeFilms() {
   loading = false;
 }
 
+// ---------------- NAVIGATION ----------------
 
 const btnPrec = document.getElementById("prec");
 const btnSuiv = document.getElementById("suiv");

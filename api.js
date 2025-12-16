@@ -1,5 +1,9 @@
+// ---------------- CONFIGURATION API ----------------
+
 const KEY_API = "15bde907";
 const URL_API = "https://www.omdbapi.com/";
+
+// ---------------- LISTE DE FILMS POPULAIRES ----------------
 
 export const FILMS_POPULAIRES = [
   "t=American History X", "t=Jarhead", "t=Fight Club", "t=No Country for Old Men",
@@ -18,11 +22,11 @@ export const FILMS_POPULAIRES = [
   "t=Toy Story", "t=Wall E", "t=Pulp Fiction", "t=Scarface", "t=Training Day", "t=Ex Machina"
 ];
 
+// ---------------- RECUPERATION D'UN FILM ----------------
 
 export async function get_film(requete) {
   try {
     const url = `${URL_API}?apikey=${KEY_API}&${requete}`;
-
     const reponse = await fetch(url);
     const data = await reponse.json();
 
@@ -37,6 +41,8 @@ export async function get_film(requete) {
     return null;
   }
 }
+
+// ---------------- FILMS ALEATOIRES ----------------
 
 export function get_films_random(nombre = 5) {
   const shuffled = [...FILMS_POPULAIRES].sort(() => Math.random() - 0.5);
