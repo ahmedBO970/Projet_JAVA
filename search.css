@@ -165,6 +165,26 @@ nav img:hover {
   line-height: 1.5;
 }
 
+.charger-btn {
+  font-size: 1.8vw;
+  padding: 1vw 7vw;
+  background: rgba(0, 0, 0, 0.4);
+  color: #FEFEFF;
+  border: none;
+  border-radius: 0.8vw;
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.4s;
+  transform: translateY(1vw);
+  box-shadow: 0 0.6vw 1vw rgba(0, 0, 0, 0.15)
+}
+
+.charger-btn:hover {
+  background: #1D2633;
+  color: #CFD1DA;
+}
+
 .footer {
   margin-top: 6vw;
   background-color: #1D2633;
