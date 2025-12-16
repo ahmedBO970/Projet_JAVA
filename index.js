@@ -17,6 +17,11 @@ async function remplirPodium() {
     const img = bloc.querySelector(".affiche");
     img.src = data.Poster !== "N/A" ? data.Poster : "./img/no-poster.png";
 
+    const lien = document.createElement("a");
+    lien.href = `movie.html?id=${data.imdbID}`;
+    img.replaceWith(lien);
+    lien.appendChild(img);
+
     bloc.querySelector(".titre-podium").textContent = data.Title;
     bloc.querySelector(".resume-cache p").textContent = data.Plot;
 
@@ -68,7 +73,9 @@ async function chargerCarrousel(liste) {
       </div>
 
       <div class="slide-droite">
-        <img class="slide-poster" src="${poster}">
+        <a href="movie.html?id=${data.imdbID}">
+          <img class="slide-poster" src="${poster}">
+        </a>
       </div>
     `;
 
