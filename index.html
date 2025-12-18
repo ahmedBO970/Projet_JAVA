@@ -7,19 +7,16 @@
     <link rel="stylesheet" href="index.css" />
 
     <!-- ---------------- FONTS ---------------- -->
-
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fjalla+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
     </style>
 
     <!-- ---------------- SCRIPT ---------------- -->
-
     <script type="module" src="index.js"></script>
   </head>
 
   <body>
-    <!-- ---------------- HEADER ---------------- -->
-
+    <!-- ---------------- HEADER / NAV ---------------- -->
     <header>
       <nav>
         <div class="nav-gauche">
@@ -39,16 +36,15 @@
       </nav>
     </header>
 
-    <!-- ---------------- MAIN ---------------- -->
-
     <main>
+      <!-- ---------------- PODIUM ---------------- -->
       <h2 class="titre-section">Best du moment</h2>
 
       <section class="best-du-moment">
         <div class="podium">
           <div class="film" id="podium-2">
             <span class="rang">2</span>
-            <img class="affiche" src="" />
+            <img class="affiche" src="" alt="Affiche du film" />
             <h3 class="titre-podium"></h3>
             <button class="bouton-plus">En savoir plus</button>
             <div class="resume-cache"><p></p></div>
@@ -56,7 +52,7 @@
 
           <div class="film" id="podium-1">
             <span class="rang">1</span>
-            <img class="affiche" src="" />
+            <img class="affiche" src="" alt="Affiche du film" />
             <h3 class="titre-podium"></h3>
             <button class="bouton-plus">En savoir plus</button>
             <div class="resume-cache"><p></p></div>
@@ -64,13 +60,41 @@
 
           <div class="film" id="podium-3">
             <span class="rang">3</span>
-            <img class="affiche" src="" />
+            <img class="affiche" src="" alt="Affiche du film" />
             <h3 class="titre-podium"></h3>
             <button class="bouton-plus">En savoir plus</button>
             <div class="resume-cache"><p></p></div>
           </div>
         </div>
       </section>
+
+      <!-- ---------------- CARROUSEL ---------------- -->
+      <h2 class="titre-section">Toujours plus</h2>
+
+      <section class="carrousel" id="Toujours-plus">
+        <button id="prec" class="slide-btn">◀</button>
+
+        <div class="carrousel-container">
+          <div class="carrousel-track"></div>
+        </div>
+
+        <div class="loader" id="loader">Chargement...</div>
+
+        <button id="suiv" class="slide-btn">▶</button>
+      </section>
     </main>
+
+    <!-- ---------------- FOOTER ---------------- -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>© 2025 • Cinéma</p>
+
+        <nav class="footer-nav">
+          <a href="index.html">Accueil</a>
+          <a href="#Toujours-plus">Toujours plus</a>
+          <a href="search.html">Recherche</a>
+        </nav>
+      </div>
+    </footer>
   </body>
 </html>

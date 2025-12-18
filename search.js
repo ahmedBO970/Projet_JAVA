@@ -24,13 +24,19 @@ function afficherFilm(data) {
   filmDiv.classList.add("film-resultat");
 
   filmDiv.innerHTML = `
-    <img class="affiche" src="${poster}">
-    <h3 class="titre-film">${data.Title}</h3>
-    <button class="bouton-plus">En savoir plus</button>
-    <div class="resume-cache">
-      <p>${data.Plot || "Résumé non disponible."}</p>
-    </div>
-  `;
+  <a href="movie.html?id=${data.imdbID}" class="lien-film">
+    <img class="affiche" src="${poster}" alt="Poster de ${data.Title}">
+  </a>
+
+  <h3 class="titre-film">${data.Title}</h3>
+
+  <button class="bouton-plus">En savoir plus</button>
+
+  <div class="resume-cache">
+    <p>${data.Plot || "Résumé non disponible."}</p>
+  </div>
+`;
+
 
   const bouton = filmDiv.querySelector(".bouton-plus");
   const resume = filmDiv.querySelector(".resume-cache");
@@ -54,7 +60,7 @@ function afficherBoutonChargerPlus() {
   const boutonExistant = document.querySelector(".charger-btn");
   if (boutonExistant) boutonExistant.remove();
 
-  if (pageActuelle * 10 >= totalResultats) return;
+  if (pageActuelle * LIMITE_FILMS >= totalResultats) return;
 
   const bouton = document.createElement("button");
   bouton.textContent = "Charger plus";

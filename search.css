@@ -131,6 +131,15 @@ nav img:hover{
   object-fit: cover;
 }
 
+.lien-film {
+  transition: 0.4s;
+}
+
+.lien-film:hover .affiche {
+  filter: brightness(0.75);
+  transform:  scale(1.05);
+}
+
 .titre-film{
   color: #101011;
   font-size: 2vw;

@@ -103,6 +103,15 @@ h3{
   object-fit: cover;
 }
 
+a .affiche{
+  transition: 0.4s;
+}
+
+a:hover .affiche {
+  filter: brightness(0.75);
+  transform:  scale(1.05);
+}
+
 .titre-podium{
   margin-top: 1.2vw;
   font-size: 1.7vw;
@@ -266,6 +275,15 @@ h3{
   object-fit: cover;
   border-radius: 1vw;
   box-shadow: 0 0.5vw 1.5vw rgba(0,0,0,0.4);
+}
+
+a .slide-poster{
+  transition: 0.4s;
+}
+
+a:hover .slide-poster {
+  filter: brightness(0.75);
+  transform:  scale(1.05);
 }
 
 .slide-btn{
